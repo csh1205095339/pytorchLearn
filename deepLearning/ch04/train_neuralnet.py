@@ -28,7 +28,7 @@ for i in range(iters_num):
     t_batch = t_train[batch_mask]
     
     # 计算梯度
-    #grad = network.numerical_gradient(x_batch, t_batch)
+    # grad = network.numerical_gradient(x_batch, t_batch)
     grad = network.gradient(x_batch, t_batch)
     
     # 更新参数
@@ -45,13 +45,21 @@ for i in range(iters_num):
         test_acc_list.append(test_acc)
         print("train acc, test acc | " + str(train_acc) + ", " + str(test_acc))
 
-# 绘制图形
-markers = {'train': 'o', 'test': 's'}
-x = np.arange(len(train_acc_list))
-plt.plot(x, train_acc_list, label='train acc')
-plt.plot(x, test_acc_list, label='test acc', linestyle='--')
-plt.xlabel("epochs")
-plt.ylabel("accuracy")
-plt.ylim(0, 1.0)
-plt.legend(loc='lower right')
+# # 绘制图形
+# markers = {'train': 'o', 'test': 's'}
+# x = np.arange(len(train_acc_list))
+# plt.plot(x, train_acc_list, label='train acc')
+# plt.plot(x, test_acc_list, label='test acc', linestyle='--')
+# plt.xlabel("epochs")
+# plt.ylabel("accuracy")
+# plt.ylim(0, 1.0)
+# plt.legend(loc='lower right')
+# plt.show()
+
+# 绘制损失函数loss图形
+x = np.arange(len(train_loss_list))
+plt.plot(x, train_loss_list)
+plt.xlabel("iteration")
+plt.ylabel("loss")
+plt.ylim(0, 9.0)
 plt.show()
